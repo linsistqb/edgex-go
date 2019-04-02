@@ -64,12 +64,14 @@ func restAddNewDevice(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Protocol check
+/*
 	if len(d.Protocols) == 0 {
 		err := errors.New("no supporting protocol specified for device")
 		LoggingClient.Error(err.Error())
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+*/
 
 	// Service Check
 	// Try by name
