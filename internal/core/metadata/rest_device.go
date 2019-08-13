@@ -61,13 +61,13 @@ func restAddNewDevice(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&d)
 	if err != nil {
 		LoggingClient.Error(err.Error())
-<<<<<<< HEAD
+
 		status := http.StatusBadRequest
 		if _, ok := err.(models.ErrContractInvalid); !ok {
 			status = http.StatusInternalServerError
 		}
 		http.Error(w, err.Error(), status)
-=======
+
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
