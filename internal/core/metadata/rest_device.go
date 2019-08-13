@@ -61,13 +61,27 @@ func restAddNewDevice(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&d)
 	if err != nil {
 		LoggingClient.Error(err.Error())
+<<<<<<< HEAD
 		status := http.StatusBadRequest
 		if _, ok := err.(models.ErrContractInvalid); !ok {
 			status = http.StatusInternalServerError
 		}
 		http.Error(w, err.Error(), status)
+=======
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+
+	// Protocol check
+/*
+	if len(d.Protocols) == 0 {
+		err := errors.New("no supporting protocol specified for device")
+		LoggingClient.Error(err.Error())
+		http.Error(w, err.Error(), http.StatusBadRequest)
+>>>>>>> 63d49a70c2fff5504860c4e606e1bf9830e5450b
+		return
+	}
+*/
 
 	ctx := r.Context()
 	// The following requester instance is necessary because we will be making an HTTP call to the device service
