@@ -75,7 +75,8 @@ test:
 
 run:
 	cd bin && ./edgex-launch.sh
-
+register:
+	cd bin && ./edgex-register.sh
 run_docker:
 	bin/edgex-docker-launch.sh $(EDGEX_DB)
 

@@ -26,7 +26,7 @@ function cleanup {
 ###
 cd $CMD/support-logging
 # Add `edgex-` prefix on start, so we can find the process family
-exec -a edgex-support-logging ./support-logging &
+exec -a edgex-support-logging ./support-logging -r true&
 cd $DIR
 
 ###
@@ -34,35 +34,35 @@ cd $DIR
 ###
 cd $CMD/core-command
 # Add `edgex-` prefix on start, so we can find the process family
-exec -a edgex-core-command ./core-command  &
+exec -a edgex-core-command ./core-command -r true &
 cd $DIR
 
 ###
 # Core Data
 ###
 cd $CMD/core-data
-exec -a edgex-core-data ./core-data  &
+exec -a edgex-core-data ./core-data -r true &
 cd $DIR
 
 ###
 # Core Metadata
 ###
 cd $CMD/core-metadata
-exec -a edgex-core-metadata ./core-metadata &
+exec -a edgex-core-metadata ./core-metadata -r true &
 cd $DIR
 
 ###
 # Export Client
 ###
 cd $CMD/export-client
-exec -a edgex-export-client ./export-client  &
+exec -a edgex-export-client ./export-client -r true &
 cd $DIR
 
 ###
 # Export Distro
 ###
 cd $CMD/export-distro
-exec -a edgex-export-distro ./export-distro  &
+exec -a edgex-export-distro ./export-distro -r true &
 cd $DIR
 
 ###
@@ -70,7 +70,7 @@ cd $DIR
 ###
 cd $CMD/support-notifications
 # Add `edgex-` prefix on start, so we can find the process family
-exec -a edgex-support-notifications ./support-notifications  &
+exec -a edgex-support-notifications ./support-notifications -r true &
 cd $DIR
 
 ###
@@ -78,14 +78,14 @@ cd $DIR
 ###
 cd $CMD/sys-mgmt-agent
 # Add `edgex-` prefix on start, so we can find the process family
-exec -a edgex-sys-mgmt-agent ./sys-mgmt-agent  &
+exec -a edgex-sys-mgmt-agent ./sys-mgmt-agent -r true &
 cd $DIR
 
 # Support Scheduler
 ###
 cd $CMD/support-scheduler
 # Add `edgex-` prefix on start, so we can find the process family
-exec -a edgex-support-scheduler ./support-scheduler  &
+exec -a edgex-support-scheduler ./support-scheduler -r true &
 cd $DIR
 
 trap cleanup EXIT
